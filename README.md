@@ -12,7 +12,7 @@ The architecture incorporates secure local data processing, with all transaction
 - **Local Microservices Deployment:** AWS Greengrass V2 runs essential services directly on the Raspberry Pi 4B, minimizing reliance on constant cloud connectivity.
 - **Offline Functionality:** POS devices continue operating during network failures, ensuring an improved user experience.
 - **Data Synchronization:** Automatic synchronization of locally processed data to AWS once connectivity is restored, maintaining data integrity and continuity.
-- **Enhanced Security:** Robust security measures, including encryption and access controls, are implemented to protect sensitive transaction data.
+- **Enhanced Security:** To protect sensitive transaction data, Robust security measures, including encryption and access controls, are implemented.
 
 This project addresses critical challenges in current POS systems, such as performance slowdowns during outages, by providing a scalable, reliable solution that meets the growing demands of modern retail environments.
 
@@ -31,13 +31,10 @@ This project addresses critical challenges in current POS systems, such as perfo
 - [Component Built, Test, Deployment, and Troubleshooting](DEPLOYMENT.md)
 - [Clean Up](CLEAN_UP.md)
 - [Future Enhancements](#future-enhancements)
-- [Support Information](#support-information)
 - [License Information](#license-information)
-
-- [Scripts Folder](#scripts)  
-- [Pictures Folder](#pictures)  
 - [Support Information](#support-information)  
-- [Project Status](#project-status)  
+- [Scripts Folder](#scripts)  
+- [Pictures Folder](#pictures)
 
 ---
 
