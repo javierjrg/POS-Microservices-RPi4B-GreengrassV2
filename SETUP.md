@@ -1,6 +1,4 @@
-# SETUP.md
-
-## Setup Instructions
+# Setup Instructions
 
 1. **Prepare Raspberry Pi 4B**
    - Follow the official [Raspberry Pi Documentation](https://www.raspberrypi.org/documentation/) to set up your Raspberry Pi 4B, including configuring network and SSH access and fully updating the operating system.
