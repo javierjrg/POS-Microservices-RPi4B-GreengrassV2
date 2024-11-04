@@ -79,9 +79,11 @@ Create the following roles to be attached to the Greengrass Core device to facil
    - `GGC-RPi4B-Policy`
 
 5. Upon completing the installation, you should see the following confirmation message:
+```bash
     `Successfully configured Nucleus with provisioned resource details!`
     `Configured Nucleus to deploy aws.greengrass.Cli component.`
     `Successfully set up Nucleus as a system service.`
+```
 
 ---
 
