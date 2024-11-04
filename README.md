@@ -33,9 +33,7 @@ This project addresses critical challenges in current POS systems, such as perfo
 - [Future Enhancements](#future-enhancements)
 - [Support Information](#support-information)  
 - [License Information](#license-information)
-- [Scripts Folder](#Scripts)  
-- [Pictures Folder](#Pictures)
-
+- [Additional Resources](#Additional-Resources)
 ---
 
 ## Architecture Overview
