@@ -137,5 +137,5 @@ This project is licensed under [License Information](<placeholder for the link t
 ---
 
 ### Additional Resources
-- [Scripts Folder](<placeholder for the link to the Scripts folder>)
-- [Pictures Folder](<placeholder for the link to the Pictures folder>)
+- [Scripts Folder](Scripts)
+- [Pictures Folder](Pictures)
