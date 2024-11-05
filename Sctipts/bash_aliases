@@ -1,1 +1,460 @@
+# User aliases
 
+# Author: Javier J. Rodríguez
+# Date: 2024-11-05
+# Version: 1.0
+# Description:
+#   These commands provide helpful shortcuts for
+#   managing your system, monitoring resource usage, handling files and AWS services, working with Docker (if installed), and using Git.
+# License: MIT License
+
+# Replace placeholders like <service>, <component>, <your-region>, 
+# <log-group-name>, <log-stream-name>, and <keyword> with your specific terms.
+
+# How to upload the file to your Linux user:
+# nano .bash_aliases
+# Copy and paste the information, then Ctrl-X to save and exit.
+#Then load the file:
+# source .abash_aliases
+
+# [ General ]
+
+# To clean the screen
+alias cls='clear'
+
+# For installing programs
+alias install='sudo apt-get -y install'
+
+# To remove an app: sudo apt remove -y <AppName>
+alias remove='sudo apt remove -y'
+
+# For updating the system
+alias update='sudo apt update && sudo apt upgrade -y'
+
+# For updating the Distro
+alias updateDist='sudo apt full-upgrade -y'
+
+# For updating everything
+alias fupdate='sudo apt update && sudo apt upgrade -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean'
+
+# For cleaning updates
+alias clsAll='sudo apt autoremove -y && sudo apt clean'
+
+# To make a script executable
+alias chX='sudo chmod a+x'
+
+# To make mount command output pretty and human-readable
+alias mount='mount | column -t'
+
+# Stop after sending count ECHO_REQUEST packets
+alias ping='ping -c 3'
+
+# Faster ping
+alias fping='ping -c 100 -i 0.2'
+
+# To ping Google
+alias gping='ping -c 3 8.8.8.8'
+
+# To show open ports
+alias ports='ss -tulanp'
+
+# become root #. Comment this alias in a production environment.
+alias root='sudo -i'
+
+# To list all currently loaded service units
+alias serviceLoad='systemctl list-units --type=service'
+
+# To list all currently enabled service units
+alias serviceEnabled='systemctl list-unit-files --type=service --state=enabled'
+
+# To reboot, power off, hibernate, and suspend the system.
+alias reboot='sudo systemctl reboot'
+alias poweroff='sudo systemctl poweroff'
+alias hybridSleep='sudo systemctl hybrid-sleep'
+
+# To shut down the system
+alias shutdown='sudo shutdown -h now'
+
+# [ Network ]
+
+# To start, stop, restart, enable(ON), and disable(OFF) network
+alias netStart='sudo systemctl start NetworkManager'
+alias netStop='sudo systemctl stop NetworkManager'
+alias netRestart='sudo systemctl restart NetworkManager'
+alias netON='sudo systemctl enable NetworkManager'
+alias netOFF='sudo systemctl disable NetworkManager'
+alias netStatus='systemctl status NetworkManager'
+
+# To edit the network interface file
+alias editInterfaces='sudo nano /etc/network/interfaces'
+
+# Restart network interface (replace ens33 with your interface name)
+alias reInterface='sudo ip link set dev ens33 down && sudo ip link set dev ens33 up'
+
+# Edit network resolve file
+alias editResolve='sudo nano /etc/resolv.conf'
+
+# Edit hostname
+alias editHosts='sudo nano /etc/hosts'
+alias editHostname='sudo nano /etc/hostname'
+alias setHostname='sudo hostnamectl set-hostname'
+
+# To check the hostname
+alias hostname='hostname --fqdn'
+
+# [ Firewall ]
+
+# UFW (Uncomplicated Firewall) commands for Debian systems
+alias enableFW='sudo ufw enable'
+alias disableFW='sudo ufw disable'
+alias statusFW='sudo ufw status verbose'
+
+# Example: allowFW https
+alias allowFW='sudo ufw allow'
+
+# Example: denyFW https
+alias denyFW='sudo ufw deny'
+
+alias reloadFW='sudo ufw reload'
+
+# To see currently loaded rules
+alias chkFWRules='sudo iptables -L -v --line-numbers | less'
+
+# [ OpenSSH-Server ]
+
+# SSH server status
+alias sshStatus='sudo systemctl status ssh'
+
+# To start and stop
+alias startSSH='sudo systemctl start ssh'
+alias stopSSH='sudo systemctl stop ssh'
+
+# To enable and disable
+alias enableSSH='sudo systemctl enable ssh'
+alias disableSSH='sudo systemctl disable ssh'
+
+# To edit the OpenSSH-Server config file
+alias editSSH='sudo nano /etc/ssh/sshd_config'
+
+# To edit the OpenSSH-Server welcome message
+alias editSSHmesg='sudo nano /etc/issue'
+
+# To edit MOTD
+alias editMOTD='sudo nano /etc/motd'
+
+# [ Systemctl ]
+
+# To check the status of a program. Example: status greengrass
+alias status='systemctl status '
+
+# To enable a program. Example: enable greengrass
+alias enable='sudo systemctl enable '
+
+# To disable a program. Example: disable greengrass
+alias disable='sudo systemctl disable '
+
+# To start a program. Example: start greengrass
+alias start='sudo systemctl start '
+
+# To restart a program. Example: restart greengrass
+alias restart='sudo systemctl restart '
+
+# To stop a program. Example: stop greengrass
+alias stop='sudo systemctl stop '
+
+# To check if the program is configured to start on boot. Example: is-enabled greengrass
+alias isEnable='systemctl is-enabled '
+
+# To check whether the service is active. Example: is-active greengrass
+alias isActive='systemctl is-active '
+
+# [ System Management ]
+
+# Display disk usage in human-readable format
+alias diskUsage='df -h'
+
+# Display file and directory sizes in human-readable format
+alias dirSize='du -sh *'
+
+# Quickly find large files (over 100M in this example)
+alias findLarge='find . -type f -size +100M'
+
+# View CPU information
+alias cpuInfo='lscpu'
+
+# View memory usage in real-time
+alias memWatch='watch -n 1 free -h'
+
+# Display free memory and swap space
+alias memFree='free -mh'
+
+# Check system load averages
+alias loadAvg='uptime'
+
+# Show running processes
+alias psTop='ps auxf | less'
+
+# Get kernel information
+alias kernel='uname -r'
+
+# Show last 100 lines of system log
+alias syslog='sudo tail -n 100 /var/log/syslog'
+
+# [ File Operations ]
+
+# Make a directory and navigate into it
+alias mkcd='mkdir -p'
+
+# Copy with progress bar
+alias cpv='rsync -ah --info=progress2'
+
+# Create a backup copy of a file
+alias bkp='cp --backup=t'
+
+# Archive a folder (tar + gzip)
+alias tarGz='tar -czvf'
+
+# Extract a tar.gz file
+alias untarGz='tar -xzvf'
+
+# [ Docker (if applicable) ]
+
+# List all Docker containers
+alias dps='docker ps -a'
+
+# Stop all running Docker containers
+alias dstopall='docker stop $(docker ps -q)'
+
+# Remove all stopped Docker containers
+alias drmAll='docker rm $(docker ps -a -q)'
+
+# Remove all unused Docker images
+alias drmImg='docker image prune -a'
+
+# [ Git ]
+
+# Display Git log in a more readable format
+alias gitLog='git log --oneline --graph --all --decorate'
+
+# Check Git status
+alias gs='git status'
+
+# Add all changes and commit
+alias gac='git add . && git commit -m'
+
+# Push to main branch
+alias gpush='git push origin main'
+
+# [ Convenience ]
+
+# Display alias list
+alias aliases='alias'
+
+# Fast reboot
+alias fastReboot='sudo systemctl reboot --force'
+
+# Empty trash
+alias emptyTrash='rm -rf ~/.local/share/Trash/*'
+
+# Edit bash aliases
+alias editAliases='nano ~/.bash_aliases && source ~/.bash_aliases'
+
+# [ AWS Greengrass V2 ]
+
+# Start Greengrass
+alias ggStart='sudo systemctl start greengrass'
+
+# Stop Greengrass
+alias ggStop='sudo systemctl stop greengrass'
+
+# Check Greengrass status
+alias ggStatus='sudo systemctl status greengrass'
+
+# View Greengrass logs
+alias ggLogs='sudo tail -f /greengrass/v2/logs/greengrass.log'
+
+# Greengrass component list
+alias ggComponents='aws greengrassv2 list-components --region us-region-1'
+
+# Deploy a Greengrass component
+#alias ggDeploy='aws greengrassv2 create-deployment --target-arn <target-arn> --components <component-name>:<component-version> --region us-region-1'
+
+# Get Greengrass deployment status
+#alias ggDeployStatus='aws greengrassv2 get-deployment --deployment-id <deployment-id> --region us-region-1'
+
+# [ AWS S3 ]
+
+# List all S3 buckets
+alias s3Buckets='aws s3 ls'
+
+# Copy file to S3
+#alias s3Cp='aws s3 cp <local-path> s3://<bucket-name>/<path>'
+
+# Copy file from S3
+#alias s3CpFrom='aws s3 cp s3://<bucket-name>/<path> <local-path>'
+
+# Sync local directory to S3 bucket
+#alias s3Sync='aws s3 sync <local-dir> s3://<bucket-name>/<path>'
+
+# Sync S3 bucket to local directory
+#alias s3SyncFrom='aws s3 sync s3://<bucket-name>/<path> <local-dir>'
+
+# [ AWS IAM ]
+
+# List IAM users
+alias iamUsers='aws iam list-users'
+
+# List IAM roles
+alias iamRoles='aws iam list-roles'
+
+# Attach policy to user
+#alias iamAttachUserPolicy='aws iam attach-user-policy --user-name <user-name> --policy-arn <policy-arn>'
+
+# Attach policy to role
+#alias iamAttachRolePolicy='aws iam attach-role-policy --role-name <role-name> --policy-arn <policy-arn>'
+
+# List policies
+alias iamPolicies='aws iam list-policies --scope Local'
+
+# [ AWS DynamoDB ]
+
+# List DynamoDB tables
+alias ddbTables='aws dynamodb list-tables --region us-region-1'
+
+# Describe a DynamoDB table
+#alias ddbDescribe='aws dynamodb describe-table --table-name <table-name> --region us-region-1'
+
+# Scan a DynamoDB table
+#alias ddbScan='aws dynamodb scan --table-name <table-name> --region us-region-1'
+
+# Put item into DynamoDB table
+alias ddbPutItem='aws dynamodb put-item --table-name <table-name> --item <json> --region us-region-1'
+
+# Query DynamoDB table
+#alias ddbQuery='aws dynamodb query --table-name <table-name> --key-condition-expression <condition> --region us-region-1'
+
+# [ AWS Policies ]
+
+# List all managed policies
+alias listPolicies='aws iam list-policies --scope Local --query Policies[*].PolicyName'
+
+# Create a new policy
+#alias createPolicy='aws iam create-policy --policy-name <policy-name> --policy-document <policy-json-file>'
+
+# Attach policy to a role
+#alias attachPolicy='aws iam attach-role-policy --role-name <role-name> --policy-arn <policy-arn>'
+
+# Detach policy from a role
+#alias detachPolicy='aws iam detach-role-policy --role-name <role-name> --policy-arn <policy-arn>'
+
+# [ General AWS CLI ]
+
+# List all AWS regions
+alias awsRegions='aws ec2 describe-regions --query "Regions[].{Name:RegionName}" --output table'
+
+# Check current AWS CLI configuration
+alias awsConfig='aws configure list'
+
+# Display caller identity (useful to verify active AWS credentials)
+alias awsWhoAmI='aws sts get-caller-identity'
+
+# Change AWS profile
+#alias awsProfile='export AWS_PROFILE=<profile-name>'
+
+# List all running EC2 instances
+alias ec2Instances='aws ec2 describe-instances --filters Name=instance-state-name,Values=running --query "Reservations[*].Instances[*].{ID:InstanceId,Type:InstanceType,State:State.Name,AZ:Placement.AvailabilityZone}" --output table --region us-region-1'
+
+# [ General Log Management ]
+
+# Follow syslog in real-time
+alias syslogTail='sudo tail -f /var/log/syslog'
+
+# Follow dmesg (kernel) logs in real-time
+alias dmesgTail='sudo dmesg -w'
+
+# Show last 100 lines of auth log (useful for login events)
+alias authLog='sudo tail -n 100 /var/log/auth.log'
+
+# View recent journalctl logs
+alias journalRecent='sudo journalctl -xe'
+
+# Follow journalctl logs in real-time
+alias journalTail='sudo journalctl -f'
+
+# Show logs for a specific service (replace <service> with the service name)
+#alias svcLog='sudo journalctl -u <service>.service'
+
+# Display last 50 lines of a log file
+alias tail50='tail -n 50'
+
+# [ Greengrass V2 Logs ]
+
+# View Greengrass general logs
+alias ggLog='sudo tail -f /greengrass/v2/logs/greengrass.log'
+
+# View specific Greengrass component log (replace <component> with component name)
+alias ggCompLog='sudo tail -f /greengrass/v2/logs/<component>.log'
+
+# Greengrass deployment logs (useful for debugging deployment issues)
+alias ggDeployLog='sudo tail -f /greengrass/v2/logs/aws.greengrass.DeploymentService.log'
+
+# [ AWS CloudWatch Logs ]
+
+# List log groups
+alias cwLogGroups='aws logs describe-log-groups --region us-region-1'
+
+# View log streams for a log group
+#alias cwLogStreams='aws logs describe-log-streams --log-group-name <log-group-name> --region us-region-1'
+
+# Tail logs from a specific log stream
+#alias cwTailLogs='aws logs tail <log-group-name> --region us-region-1 --follow'
+
+# View logs from a specific log stream
+#alias cwViewLogs='aws logs get-log-events --log-group-name <log-group-name> --log-stream-name <log-stream-name> --region us-region-1'
+
+# Tail CloudWatch logs in real-time
+#alias cwTail='aws logs tail <log-group-name> --region us-region-1 --follow'
+
+# Export CloudWatch logs to a file
+#alias cwExportLogs='aws logs get-log-events --log-group-name <log-group-name> --log-stream-name <log-stream-name> --output text > cloudwatch_logs.txt'
+
+# [ Systemd Journal Filtering ]
+
+# Show logs from the last boot
+alias journalBoot='sudo journalctl -b'
+
+# Show logs for today only
+alias journalToday='sudo journalctl --since "today"'
+
+# Show logs for a specific date range
+alias journalDate='sudo journalctl --since "YYYY-MM-DD" --until "YYYY-MM-DD"'
+
+# Show logs by priority level (e.g., errors only)
+alias journalErrors='sudo journalctl -p err'
+
+# [ SSH Session Logs ]
+
+# View SSH login attempts
+alias sshLogins='sudo cat /var/log/auth.log | grep "sshd"'
+
+# Tail SSH logs to monitor connections in real-time
+alias sshTail='sudo tail -f /var/log/auth.log | grep "sshd"'
+
+# [ Log Searching & Filtering ]
+
+# Search logs for a specific keyword (replace <keyword> with desired term)
+alias logSearch='grep "<keyword>"'
+
+# Search logs for IP addresses (useful for tracking access)
+alias logIPs='grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}"'
+
+# Count occurrences of a specific keyword in logs
+alias logCount='grep -c "<keyword>"'
+
+# Filter syslog for errors
+alias sysErrors='sudo grep -i "error" /var/log/syslog'
+
+# Filter auth log for failed logins
+alias authFail='sudo grep "Failed password" /var/log/auth.log'
+
+EOF
