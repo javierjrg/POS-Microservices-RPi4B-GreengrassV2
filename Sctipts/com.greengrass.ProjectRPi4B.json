@@ -1,0 +1,49 @@
+"""
+Author: Javier J. Rodríguez
+Date: 2024-11-05
+Version: 1.0
+
+Description:
+	This JSON configuration defines a Greengrass V2 component called com.greengrass.ProjectRPi4B version 1.0.0
+	with platform-specific instructions for running the s3_test1.py script, which is stored in an S3 bucket, 
+	and includes default configuration options and lifecycle commands for both Linux and Windows environments.
+
+License: MIT License
+
+"""
+
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.greengrass.ProjectRPi4B",
+  "ComponentVersion": "1.0.0",
+  "ComponentDescription": "GGC-RPi4B Component with S3 test.",
+  "ComponentPublisher": "GGC",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "Message": "New S3 Test"
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux"
+      },
+      "Lifecycle": {
+        "run": "python3 -u {artifacts:path}/s3_test1.py {configuration:/Message}"
+      }
+    },
+    {
+      "Platform": {
+        "os": "windows"
+      },
+      "Lifecycle": {
+        "run": "py -3 -u {artifacts:path}/s3_test1.py {configuration:/Message}"
+      }
+    }
+  ],
+  "Artifacts": [
+    {
+      "URI": "s3://ggc-project-s3-bucket/greengrass_rpi4Project/1.0.0/s3_test1.py"
+    }
+  ]
+}
