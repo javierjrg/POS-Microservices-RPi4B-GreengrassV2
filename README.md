@@ -37,7 +37,7 @@ This project addresses critical challenges in current POS systems, such as perfo
 ---
 
 ## Architecture Overview
-![Architecture Diagram](<placeholder for the link to the diagram picture>)
+![Architecture Diagram](Pictures/GreengrassProjectDiagram.jpg)
 
 This project leverages AWS Greengrass V2 to deploy a cloud-native microservices architecture on a Raspberry Pi 4B, enabling seamless offline operations for POS devices. The architecture consists of the following key components:
 
