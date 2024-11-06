@@ -135,7 +135,7 @@ Please have a look at [CLARIFICATION.md](CLARIFICATION.md) for details on essent
 ---
 
 ## Support Information
-Please look at the [Support Information](SUPPORT.md) for additional support information.
+Please look at the [Project_Resources](PROJECT_RESOURCES.md) for additional resource information.
 
 ---
 
