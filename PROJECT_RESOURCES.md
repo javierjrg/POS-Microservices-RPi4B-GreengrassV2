@@ -2,8 +2,8 @@
 
 This document provides a curated list of resources used in the project, including tutorials, documentation, and articles relevant to AWS IoT, Greengrass, and more.
 
-| Published / Accessed | Title | Author/Creator | Description | URL |
-|----------------------|-------|----------------|-------------|-----|
+| Published / Accessed | Title | Author/Creator | Description |   URL   |
+|----------------------|-------|----------------|-------------|---------|
 | 3/18/2024           | 15 Elements to Include in Your README Document | Davor | Guide on essential elements to include in a README document. | [Document Link](https://www.archbee.com/blog/readme-document-elements) |
 | 3/15/2022           | 5 tips to build AWS IoT Greengrass v2 Components | Katja-Maja Kroedel | AWS blog with five tips for building Greengrass V2 components. | [AWS Link](https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/) |
 | 8/22/2021           | ACG Project: DIY Mars Probe | Scott Pletcher | CloudGuru's Mars Probe project resources on GitHub. | [GitHub Link](https://github.com/ACloudGuru-Resources/acg-project-mars-probe) |
