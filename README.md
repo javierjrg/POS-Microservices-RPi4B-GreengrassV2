@@ -31,6 +31,8 @@ This project addresses critical challenges in current POS systems, such as perfo
 - [Component Built, Test, Deployment, and Troubleshooting](DEPLOYMENT.md)
 - [Clean Up](CLEAN_UP.md)
 - [Future Enhancements](#future-enhancements)
+- [MAC Model](#mac-model)
+- [Clarification](#clarification)
 - [Support Information](#support-information)  
 - [License Information](#license-information)
 - [Additional Resources](#Additional-Resources)
@@ -118,6 +120,17 @@ Please see [CLEAN_UP.md](CLEAN_UP.md) for step-by-step instructions on removing 
 
 ## Future Enhancements
 The next version of this project will utilize AWS DynamoDB instead of Amazon S3 to save CSV file updates and integrate two additional Raspberry Pi 4B devices into the AWS Greengrass Core.
+
+---
+
+## MAC Model
+Please review [MAC_MODEL.md](MAC_MODEL.md) to understand the project's motivation, architecture, and challenges.
+
+---
+
+## Clarification
+
+Please have a look at [CLARIFICATION.md](CLARIFICATION.md) for details on essential project clarification.
 
 ---
 
