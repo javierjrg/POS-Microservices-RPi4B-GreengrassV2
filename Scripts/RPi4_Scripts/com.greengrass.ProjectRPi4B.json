@@ -1,16 +1,14 @@
-"""
-Author: Javier J. Rodríguez
-Date: 2024-11-05
-Version: 1.0
-
-Description:
-	This JSON configuration defines a Greengrass V2 component called com.greengrass.ProjectRPi4B version 1.0.0
-	with platform-specific instructions for running the s3_test1.py script, which is stored in an S3 bucket, 
-	and includes default configuration options and lifecycle commands for both Linux and Windows environments.
-
-License: MIT License
-
-"""
+# Author: Javier J. Rodríguez
+# Date: 2024-11-05
+# Version: 1.0
+# 
+# Description:
+# 	This JSON configuration defines a Greengrass V2 component called com.greengrass.ProjectRPi4B version 1.0.0
+# 	with platform-specific instructions for running the s3_test1.py script, which is stored in an S3 bucket, 
+# 	and includes default configuration options and lifecycle commands for both Linux and Windows environments.
+# 
+# License: MIT License
+# 
 
 {
   "RecipeFormatVersion": "2020-01-25",
