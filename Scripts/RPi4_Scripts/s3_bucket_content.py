@@ -12,3 +12,13 @@ License: MIT License
 
 """
 
+import boto3
+
+s3 = boto3.client('s3')
+bucket_name = 'ggc-project-s3-bucket'
+prefix = 'greengrass_rpi4Project/1.0.0/'
+
+response = s3.list_objects_v2(Bucket=bucket_name, Prefix=prefix)
+for obj in response.get('Contents', []):
+    print(f"File: {obj['Key']}, Last Modified: {obj['LastModified']}")
+
